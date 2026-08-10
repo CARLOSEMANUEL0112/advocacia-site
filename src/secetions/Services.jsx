@@ -1,58 +1,140 @@
-import { Building2, Users, FileText, Scale, Briefcase, Gavel } from "lucide-react"
+import { useState } from "react"
+import { 
+  Building2, 
+  Scale, 
+  BookOpen, 
+  Vote, 
+  ShieldCheck, 
+  FileSpreadsheet, 
+  TreePine, 
+  Briefcase,
+  CheckCircle2,
+  ArrowRight,
+  X
+} from "lucide-react"
 
 const areas = [
   {
     icon: Building2,
-    title: "Direito Empresarial",
-    description: "Assessoria estratégica para empresas, contratos corporativos, fusões e prevenção de riscos jurídicos."
-  },
-  {
-    icon: Users,
-    title: "Direito de Família e Sucessões",
-    description: "Resolução humanizada e discreta para divórcios, inventários, partilha de bens e planejamento sucessório."
-  },
-  {
-    icon: FileText,
-    title: "Direito Civil e Contratos",
-    description: "Elaboração e análise rígida de contratos, renegociações e indenizações para proteção do seu patrimônio."
-  },
-  {
-    icon: Briefcase,
-    title: "Direito Trabalhista",
-    description: "Atuação defensiva para empresas e defesa dos direitos corporativos de executivos e trabalhadores."
+    title: "Direito Administrativo",
+    description: "Regula a atividade da Administração Pública e suas relações com os cidadãos, garantindo legalidade e eficiência.",
+    topics: [
+      "Consultoria em licitações e contratos administrativos",
+      "Assessoria em processos administrativos disciplinares",
+      "Elaboração de defesas em ações de improbidade administrativa",
+      "Consultoria sobre atos normativos e regulatórios",
+      "Análise de conformidade com a legislação ambiental",
+      "Representação em contenciosos administrativos"
+    ]
   },
   {
     icon: Scale,
-    title: "Direito Imobiliário",
-    description: "Segurança jurídica em compra, venda, locação, regularização de imóveis e usucapião."
+    title: "Direito Civil",
+    description: "Regula as relações entre indivíduos e entidades, protegendo direitos e garantindo segurança jurídica nas relações interpessoais.",
+    topics: [
+      "Consultoria em contratos",
+      "Ações de indenização",
+      "Planejamento sucessório",
+      "Regularização de imóveis",
+      "Ação de reconhecimento de paternidade",
+      "Mediação e conciliação familiar"
+    ]
   },
   {
-    icon: Gavel,
+    icon: BookOpen,
+    title: "Direito Constitucional",
+    description: "Estuda as normas fundamentais do Estado, garantindo a proteção dos direitos e garantias individuais dos cidadãos.",
+    topics: [
+      "Assessoria na elaboração de propostas legislativas",
+      "Defesa em ações diretas de inconstitucionalidade",
+      "Análise de contratos administrativos",
+      "Orientação sobre direitos fundamentais",
+      "Consultoria em direitos políticos",
+      "Representação em conflitos de competências"
+    ]
+  },
+  {
+    icon: Vote,
+    title: "Direito Eleitoral",
+    description: "Regulamenta normas e processos eleitorais, assegurando a lisura e a transparência democrática nos pleitos.",
+    topics: [
+      "Consultoria em candidaturas",
+      "Assessoria na elaboração de peças eleitorais",
+      "Defesa em processos e ações judiciais eleitorais",
+      "Consultoria sobre financiamento e prestação de contas",
+      "Análise de regularidade partidária",
+      "Orientação sobre direitos políticos e condições de elegibilidade"
+    ]
+  },
+  {
+    icon: ShieldCheck,
+    title: "Direito Previdenciário",
+    description: "Regulamenta a proteção social, assegurando o acesso a benefícios e a segurança financeira dos segurados e dependentes.",
+    topics: [
+      "Consultoria em aposentadoria",
+      "Revisão de benefícios previdenciários",
+      "Planejamento sucessório",
+      "Orientação sobre seguridade social",
+      "Assessoria em requerimentos administrativos",
+      "Defesas em ações judiciais previdenciárias"
+    ]
+  },
+  {
+    icon: FileSpreadsheet,
     title: "Direito Tributário",
-    description: "Planejamento tributário, recuperação de créditos e defesa em processos administrativos ou judiciais."
+    description: "Regulamenta a arrecadação e fiscalização de tributos, promovendo a justiça fiscal e o equilíbrio entre Estado e contribuintes.",
+    topics: [
+      "Consultoria tributária",
+      "Planejamento tributário",
+      "Defesas administrativas em autuações fiscais",
+      "Análise de incentivos fiscais",
+      "Assessoria em processos judiciais tributários",
+      "Elaboração de pareceres jurídicos tributários"
+    ]
+  },
+  {
+    icon: TreePine,
+    title: "Direito do Meio Ambiente",
+    description: "Visa assegurar a proteção dos recursos naturais, promovendo um desenvolvimento sustentável e equilibrado para a sociedade.",
+    topics: [
+      "Consultoria em licenciamento ambiental",
+      "Assessoria em questões de responsabilidade ambiental",
+      "Análise e elaboração de pareceres de impacto ambiental",
+      "Defesa em ações civis públicas e ações coletivas",
+      "Orientação sobre compliance ambiental",
+      "Elaboração de contratos relacionados a atividades ambientais"
+    ]
+  },
+  {
+    icon: Briefcase,
+    title: "Direito do Trabalho",
+    description: "Regula as relações entre empregados e empregadores, buscando assegurar justiça, respeito e equilíbrio no ambiente laboral.",
+    topics: [
+      "Consultoria em contratos de trabalho",
+      "Assessoria em rescisões contratuais",
+      "Acompanhamento de disputas trabalhistas",
+      "Orientação sobre direitos e deveres do trabalhador",
+      "Elaboração de políticas de compliance trabalhista",
+      "Representação em audiências trabalhistas"
+    ]
   }
 ]
 
 function Services() {
+  const [selectedArea, setSelectedArea] = useState(null)
+
   return (
-    <section id="atuacao" className="bg-[#0e1d35] text-white py-24 sm:py-32 border-t border-white/5">
+    <section id="atuacao" className="bg-black text-white py-24 sm:py-32 border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Cabeçalho da Seção */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-[#c9a96e]/10 border border-[#c9a96e]/30 px-4 py-2 rounded-full mb-6">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#c9a96e]"></span>
-            <span className="uppercase tracking-[0.2em] text-[11px] font-bold text-[#c9a96e]">
-              Especialidades
-            </span>
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">
-            Nossas Principais Áreas de Atuação
+            Áreas de Atuação
           </h2>
 
           <p className="text-base sm:text-lg text-white/70 leading-relaxed">
-            Oferecemos soluções jurídicas personalizadas com foco na prevenção de litígios e na defesa firme dos seus interesses.
+            Confira nossas áreas de atuação e como podemos te ajudar.
           </p>
         </div>
 
@@ -63,10 +145,10 @@ function Services() {
             return (
               <div 
                 key={index}
-                className="bg-[#0b1628] border border-white/10 p-8 rounded-2xl hover:border-[#c9a96e]/50 transition-all duration-300 group flex flex-col justify-between"
+                className="bg-[#111111] border border-white/10 p-8 rounded-2xl hover:border-[#c9a96e]/50 hover:bg-[#161616] transition-all duration-300 group flex flex-col justify-between shadow-xl"
               >
                 <div>
-                  <div className="w-14 h-14 rounded-xl bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center text-[#c9a96e] mb-6 group-hover:bg-[#c9a96e] group-hover:text-[#0b1628] transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center text-[#c9a96e] mb-6 group-hover:bg-[#c9a96e] group-hover:text-black transition-all duration-300">
                     <Icon size={28} />
                   </div>
 
@@ -74,9 +156,27 @@ function Services() {
                     {area.title}
                   </h3>
 
-                  <p className="text-sm text-white/60 leading-relaxed">
+                  <p className="text-sm text-white/70 leading-relaxed mb-6">
                     {area.description}
                   </p>
+                </div>
+
+                {/* Botões refinados e estilizados */}
+                <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-3">
+                  <button 
+                    onClick={() => setSelectedArea(area)}
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#c9a96e]/10 border border-[#c9a96e]/30 hover:bg-[#c9a96e] text-[#c9a96e] hover:text-black py-2.5 px-4 rounded-xl text-xs font-bold tracking-wider uppercase transition-all duration-300 group/btn cursor-pointer"
+                  >
+                    <span>Saiba Mais</span>
+                    <ArrowRight size={14} className="transform group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+
+                  <a 
+                    href="#contato"
+                    className="text-xs font-medium text-white/70 hover:text-[#c9a96e] transition-colors px-3 py-2.5 rounded-xl hover:bg-white/5 border border-white/5 text-center"
+                  >
+                    Falar sobre o caso
+                  </a>
                 </div>
               </div>
             )
@@ -84,8 +184,56 @@ function Services() {
         </div>
 
       </div>
+
+      {/* MODAL ELEGANTE */}
+      {selectedArea && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+          <div className="bg-[#141414] border border-[#c9a96e]/40 rounded-3xl max-w-2xl w-full p-8 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            
+            <button 
+              onClick={() => setSelectedArea(null)}
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/75 hover:text-black hover:bg-[#c9a96e] hover:border-[#c9a96e] transition-all cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-4 pr-12">
+              {selectedArea.title}
+            </h3>
+
+            <p className="text-sm sm:text-base text-white/80 leading-relaxed mb-6 pb-6 border-b border-white/10">
+              {selectedArea.description}
+            </p>
+
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#c9a96e] mb-4">
+              O que abrange esta área:
+            </h4>
+
+            <ul className="space-y-3 mb-8">
+              {selectedArea.topics.map((topic, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-white/85 bg-white/5 p-3.5 rounded-xl border border-white/5">
+                  <CheckCircle2 size={18} className="text-[#c9a96e] shrink-0 mt-0.5" />
+                  <span>{topic}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="#contato"
+                onClick={() => setSelectedArea(null)}
+                className="flex-1 inline-flex items-center justify-center gap-3 bg-[#c9a96e] hover:bg-[#b8975c] text-black px-6 py-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-[#c9a96e]/20 group"
+              >
+                <span>Falar com advogado sobre esta área</span>
+                <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+      )}
     </section>
   )
 }
 
-export default Services;
+export default Services

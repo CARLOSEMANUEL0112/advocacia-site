@@ -1,78 +1,85 @@
-import { Mail, MessageSquare } from "lucide-react"
+import { Mail, MessageSquare, Award, CheckCircle2 } from "lucide-react"
 
 function Team() {
   return (
-    <section id="sobre" className="bg-[#0e1d35] text-white py-24 sm:py-32 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+    <section id="sobre" className="bg-black text-white py-28 sm:py-36 border-t border-white/10 relative overflow-hidden">
+      
+      {/* Luz de fundo sutil para dar profundidade premium */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#c9a96e]/5 blur-[140px] pointer-events-none rounded-full" />
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* Cabeçalho */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-[#c9a96e]/10 border border-[#c9a96e]/30 px-4 py-2 rounded-full mb-6">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#c9a96e]"></span>
-            <span className="uppercase tracking-[0.2em] text-[11px] font-bold text-[#c9a96e]">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+          <div className="inline-flex items-center gap-2 bg-[#c9a96e]/10 border border-[#c9a96e]/30 px-4 py-2 rounded-full mb-6 shadow-lg shadow-[#c9a96e]/5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#c9a96e] animate-pulse"></span>
+            <span className="uppercase tracking-[0.25em] text-[11px] font-bold text-[#c9a96e]">
               Advogado Responsável
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight tracking-tight">
             Atuação Direta e Exclusiva
           </h2>
 
-          <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+          <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl">
             Sem intermediários: você trata do seu caso diretamente com o especialista responsável por toda a sua estratégia jurídica.
           </p>
         </div>
 
         {/* Card do Advogado */}
-        <div className="max-w-4xl mx-auto bg-[#0b1628] border border-white/10 rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-12 items-stretch">
+        <div className="max-w-5xl mx-auto bg-gradient-to-b from-[#111111] to-[#080808] border border-white/10 hover:border-[#c9a96e]/40 transition-all duration-500 rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-12 items-center">
           
           {/* Container da Imagem */}
-          <div className="md:col-span-5 relative min-h-[380px] md:min-h-full">
+          <div className="md:col-span-5 relative h-[420px] sm:h-[500px] md:h-full min-h-[480px] bg-black overflow-hidden group">
             <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
-              alt="Dr. Carlos Almeida - Advogado Responsável"
-              className="w-full h-full object-cover object-top absolute inset-0"
+              src="/foto_rapaz_thiago_miranda_alta_resolucao.png"
+              alt="Dr. Thiago Miranda - Advogado Responsável"
+              className="w-full h-full object-cover object-top absolute inset-0 group-hover:scale-105 transition-transform duration-700"
             />
+            {/* Gradiente interno na imagem para fusão perfeita */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent md:hidden" />
           </div>
 
           {/* Conteúdo */}
-          <div className="md:col-span-7 p-8 sm:p-10 flex flex-col justify-between gap-6">
-            <div>
-              <div className="flex items-center justify-between gap-4 mb-2 flex-wrap">
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
-                  Dr. Carlos Almeida
+          <div className="md:col-span-7 p-8 sm:p-12 flex flex-col justify-between gap-8">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between gap-4 flex-wrap">
+                <h3 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-wide">
+                  Dr. Thiago Miranda
                 </h3>
-                <span className="text-xs font-semibold text-[#c9a96e] bg-[#c9a96e]/15 px-3.5 py-1.5 rounded-full border border-[#c9a96e]/30">
-                  OAB/SP 000.000
+                <span className="text-xs font-semibold text-[#c9a96e] bg-[#c9a96e]/10 px-4 py-2 rounded-full border border-[#c9a96e]/30 tracking-wider">
+                  OAB/PI 00.000
                 </span>
               </div>
 
-              <p className="text-sm text-[#c9a96e] font-semibold tracking-wide uppercase mb-4">
-                Advogado Titular
+              <div className="flex items-center gap-2 text-sm text-[#c9a96e] font-semibold tracking-widest uppercase">
+                <Award size={16} />
+                <span>Advogado Titular & Sócio Fundador</span>
+              </div>
+
+              <p className="text-sm sm:text-base text-white/75 leading-relaxed pt-2">
+                Profissional dedicado à advocacia estratégica, com atuação firme na resolução de conflitos, proteção de direitos e planejamento jurídico personalizado para cada cliente.
               </p>
 
-              <p className="text-sm text-white/75 leading-relaxed mb-6">
-                Especialista em Direito Empresarial e Civil, com vasta experiência em negociações complexas, gestão de litígios e proteção patrimonial.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs font-medium bg-white/5 border border-white/15 text-white/90 px-3 py-1.5 rounded-xl">
-                  Direito Empresarial
-                </span>
-                <span className="text-xs font-medium bg-white/5 border border-white/15 text-white/90 px-3 py-1.5 rounded-xl">
-                  Contratos
-                </span>
-                <span className="text-xs font-medium bg-white/5 border border-white/15 text-white/90 px-3 py-1.5 rounded-xl">
-                  Proteção Patrimonial
-                </span>
+              {/* Diferenciais rápidos em formato de lista limpa */}
+              <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-white/80">
+                <div className="flex items-center gap-2 bg-white/[0.03] border border-white/5 p-2.5 rounded-xl">
+                  <CheckCircle2 size={15} className="text-[#c9a96e] shrink-0" />
+                  <span>Atendimento Personalizado</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/[0.03] border border-white/5 p-2.5 rounded-xl">
+                  <CheckCircle2 size={15} className="text-[#c9a96e] shrink-0" />
+                  <span>Estratégia sob Medida</span>
+                </div>
               </div>
             </div>
 
-            {/* Rodapé do Card com apenas o botão de E-mail */}
+            {/* Rodapé do Card */}
             <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
               <a
                 href="#contato"
-                className="inline-flex items-center gap-2.5 bg-[#c9a96e] hover:bg-[#b8975c] text-[#0b1628] px-6 py-3 rounded-xl text-sm font-bold transition-all shadow-lg hover:shadow-[#c9a96e]/20"
+                className="inline-flex items-center gap-2.5 bg-[#c9a96e] hover:bg-[#b8975c] text-black px-7 py-3.5 rounded-2xl text-sm font-bold transition-all shadow-lg shadow-[#c9a96e]/15 hover:shadow-[#c9a96e]/30 hover:-translate-y-0.5"
               >
                 <MessageSquare size={17} />
                 Agendar Consulta
@@ -81,7 +88,7 @@ function Team() {
               <a 
                 href="mailto:carlosemanuelr0405@gmail.com" 
                 aria-label="Enviar E-mail"
-                className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-[#c9a96e] hover:border-[#c9a96e]/40 hover:bg-[#c9a96e]/10 transition-all"
+                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-[#c9a96e] hover:border-[#c9a96e]/40 hover:bg-[#c9a96e]/10 transition-all hover:-translate-y-0.5"
               >
                 <Mail size={19} />
               </a>
