@@ -52,10 +52,7 @@ function Contact() {
         
         {/* Cabeçalho */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#c9a96e] font-bold mb-4 bg-[#c9a96e]/10 px-4 py-1.5 rounded-full border border-[#c9a96e]/20">
-            Atendimento
-          </span>
-
+          
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-6 leading-tight">
             Entre em Contato Conosco
           </h2>

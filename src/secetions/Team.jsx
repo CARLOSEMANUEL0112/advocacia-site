@@ -11,12 +11,6 @@ function Team() {
         
         {/* Cabeçalho */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-24">
-          <div className="inline-flex items-center gap-2 bg-[#c9a96e]/10 border border-[#c9a96e]/30 px-4 py-2 rounded-full mb-6 shadow-lg shadow-[#c9a96e]/5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#c9a96e] animate-pulse"></span>
-            <span className="uppercase tracking-[0.25em] text-[11px] font-bold text-[#c9a96e]">
-              Advogado Responsável
-            </span>
-          </div>
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight tracking-tight">
             Atuação Direta e Exclusiva

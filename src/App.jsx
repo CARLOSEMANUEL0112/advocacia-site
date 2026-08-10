@@ -4,8 +4,9 @@ import Services from "./secetions/Services";
 import About from "./secetions/About";
 import Team from "./secetions/Team";
 import Faq from "./secetions/Faq";
-import Testimonials from "./secetions/Testimonials"; // 1. Importe aqui no topo
+import Testimonials from "./secetions/Testimonials"; 
 import Contact from "./secetions/Contact";
+import Footer from "./secetions/Footer";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
       <About />
       <Team />
       <Faq />
-      <Testimonials /> {/* 2. Insira a seção aqui */}
+      <Testimonials /> 
       <Contact />
+      < Footer />
     </>
   )
 }

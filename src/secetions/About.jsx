@@ -100,12 +100,6 @@ function About() {
           {/* Coluna da Direita (Conteúdo + Mapa Integrado) */}
           <div className="lg:col-span-6 flex flex-col items-start">
             
-            <div className="inline-flex items-center gap-2 bg-[#c9a96e]/10 border border-[#c9a96e]/30 px-4 py-2 rounded-full mb-6">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#c9a96e]"></span>
-              <span className="uppercase tracking-[0.2em] text-[11px] font-bold text-[#c9a96e]">
-                O Escritório & Localização
-              </span>
-            </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">
               Tradição, ética e compromisso com o seu resultado.

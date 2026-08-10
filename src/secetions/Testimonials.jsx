@@ -31,9 +31,7 @@ function Testimonials() {
         
         {/* Cabeçalho */}
         <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-20">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#c9a96e] font-bold mb-3 bg-[#c9a96e]/10 px-4 py-1.5 rounded-full border border-[#c9a96e]/20">
-            Avaliações
-          </span>
+          
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
             O que dizem nossos clientes
           </h2>
