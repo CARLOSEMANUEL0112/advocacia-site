@@ -46,10 +46,21 @@ function About() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Coluna da Esquerda (Carrossel Ajustado para exibir a foto inteira) */}
+          {/* Coluna da Esquerda (Carrossel com bordas douradas detalhadas) */}
           <div className="lg:col-span-6 relative group">
-            <div className="rounded-[2.5rem] overflow-hidden border border-white/15 shadow-2xl bg-[#0a0a0a] relative h-[450px] sm:h-[580px] flex items-center justify-center">
+            {/* Adicionado border-[#c9a96e]/40 e sombra dourada sutil shadow-[#c9a96e]/10 */}
+            <div className="rounded-[2.5rem] overflow-hidden border-2 border-[#c9a96e]/40 shadow-2xl shadow-[#c9a96e]/10 relative h-[520px] sm:h-[650px] flex items-center justify-center bg-black/40">
               
+              {/* Fundo com desfoque */}
+              <img 
+                src="/escritorio-card.png"
+                alt="Ambiente do escritório Thiago Miranda"
+                className="absolute inset-0 w-full h-full object-cover scale-110 filter blur-md opacity-40 z-0"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-black/70 z-0"></div>
+
+              {/* As fotos do Carrossel */}
               {officePhotos.map((photo, index) => (
                 <div
                   key={index}
@@ -60,14 +71,14 @@ function About() {
                   <img
                     src={photo.url}
                     alt={photo.caption}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain drop-shadow-2xl"
                   />
                 </div>
               ))}
 
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-25 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-25 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
                 aria-label="Foto anterior"
               >
                 <ChevronLeft size={20} />
@@ -75,13 +86,13 @@ function About() {
 
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-25 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-25 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
                 aria-label="Próxima foto"
               >
                 <ChevronRight size={20} />
               </button>
 
-              <div className="absolute bottom-6 right-6 z-25 flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/10 shadow-xl">
+              <div className="absolute bottom-6 right-6 z-25 flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3.5 py-2 rounded-full border border-[#c9a96e]/30 shadow-xl">
                 {officePhotos.map((_, index) => (
                   <button
                     key={index}
@@ -97,10 +108,8 @@ function About() {
             </div>
           </div>
 
-          {/* Coluna da Direita (Conteúdo + Mapa Integrado) */}
+          {/* Coluna da Direita (Conteúdo) */}
           <div className="lg:col-span-6 flex flex-col items-start">
-            
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">
               Tradição, ética e compromisso com o seu resultado.
             </h2>
@@ -146,11 +155,11 @@ function About() {
                 </a>
               </div>
 
-              {/* Mapa incorporado correto */}
-              <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border border-white/10 relative shadow-inner bg-white/5">
+              {/* Mapa com a borda dourada alinhada e a sua URL correta */}
+              <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border-2 border-[#c9a96e]/40 relative shadow-inner bg-black">
                 <iframe
                   title="Localização do Escritório - Thiago Miranda Advogados"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.0!2d-44.0!3d-9.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzAnMDAuMCJTIDQ0wrAwMCcwMC4wIlc!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.179180030242!2d-44.239133125201704!3d-10.327541289795231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x76397e237072cef%3A0x614097124d0bda0!2sThiago%20Miranda%20Advogados!5e0!3m2!1spt-BR!2sbr!4v1786486589475!5m2!1spt-BR!2sbr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -160,7 +169,6 @@ function About() {
                 ></iframe>
               </div>
 
-              {/* Botão mobile */}
               <div className="mt-4 pt-3 border-t border-white/10 flex sm:hidden justify-center">
                 <a
                   href="https://maps.google.com/?q=Avenida+Antônio+Ribeiro,+Júlio+Borges+-+PI"

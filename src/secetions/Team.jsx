@@ -42,9 +42,6 @@ function Team() {
                 <h3 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-wide">
                   Dr. Thiago Miranda
                 </h3>
-                <span className="text-xs font-semibold text-[#c9a96e] bg-[#c9a96e]/10 px-4 py-2 rounded-full border border-[#c9a96e]/30 tracking-wider">
-                  OAB/PI 00.000
-                </span>
               </div>
 
               <div className="flex items-center gap-2 text-sm text-[#c9a96e] font-semibold tracking-widest uppercase">
