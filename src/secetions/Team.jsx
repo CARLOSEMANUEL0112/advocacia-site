@@ -1,4 +1,4 @@
-import { Mail, MessageSquare, Award, CheckCircle2 } from "lucide-react"
+import { Mail, MessageSquare, Award, CheckCircle2, Quote } from "lucide-react"
 
 function Team() {
   return (
@@ -11,7 +11,6 @@ function Team() {
         
         {/* Cabeçalho */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-24">
-
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight tracking-tight">
             Atuação Direta e Exclusiva
           </h2>
@@ -22,40 +21,36 @@ function Team() {
         </div>
 
         {/* Card do Advogado */}
-        <div className="max-w-5xl mx-auto bg-gradient-to-b from-[#111111] to-[#080808] border border-white/10 hover:border-[#c9a96e]/40 transition-all duration-500 rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-12 items-center">
+        <div className="max-w-5xl mx-auto bg-gradient-to-b from-[#111111] to-[#080808] border border-white/10 hover:border-[#c9a96e]/40 transition-all duration-500 rounded-3xl overflow-hidden shadow-2xl grid md:grid-cols-12 items-stretch">
           
           {/* Container da Imagem */}
-          <div className="md:col-span-5 relative h-[420px] sm:h-[500px] md:h-full min-h-[480px] bg-black overflow-hidden group">
+          <div className="md:col-span-5 relative h-[420px] sm:h-[500px] md:h-auto min-h-[480px] bg-[#1a1a1a] overflow-hidden group">
             <img
-              src="/foto_rapaz_thiago_miranda_alta_resolucao.png"
+              src="/foto_thiago.jpeg"
               alt="Dr. Thiago Miranda - Advogado Responsável"
-              className="w-full h-full object-cover object-top absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover object-[center_25%] absolute inset-0 group-hover:scale-105 transition-transform duration-700"
             />
-            {/* Gradiente interno na imagem para fusão perfeita */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent md:hidden" />
           </div>
 
-          {/* Conteúdo */}
-          <div className="md:col-span-7 p-8 sm:p-12 flex flex-col justify-between gap-8">
+          {/* Conteúdo do Card */}
+          <div className="md:col-span-7 p-8 sm:p-10 flex flex-col justify-between gap-6">
             <div className="space-y-4">
-              <div className="flex items-center justify-between gap-4 flex-wrap">
-                <h3 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-wide">
-                  Dr. Thiago Miranda
-                </h3>
-              </div>
+              <h3 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-wide">
+                Dr. Thiago Miranda
+              </h3>
 
               <div className="flex items-center gap-2 text-sm text-[#c9a96e] font-semibold tracking-widest uppercase">
                 <Award size={16} />
                 <span>Advogado Titular & Sócio Fundador</span>
               </div>
 
-              {/* Descrição atualizada com a formação enviada */}
-              <p className="text-sm sm:text-base text-white/75 leading-relaxed pt-2">
+              <p className="text-sm sm:text-base text-white/75 leading-relaxed">
                 Graduado pela Escola de Direito - Universidade Anhembi Morumbi. Profissional dedicado à advocacia estratégica, com atuação firme na resolução de conflitos, proteção de direitos e planejamento jurídico personalizado para cada cliente.
               </p>
 
-              {/* Diferenciais rápidos em formato de lista limpa */}
-              <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-white/80">
+              {/* Diferenciais rápidos */}
+              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-white/80">
                 <div className="flex items-center gap-2 bg-white/[0.03] border border-white/5 p-2.5 rounded-xl">
                   <CheckCircle2 size={15} className="text-[#c9a96e] shrink-0" />
                   <span>Atendimento Personalizado</span>
@@ -65,10 +60,16 @@ function Team() {
                   <span>Estratégia sob Medida</span>
                 </div>
               </div>
+
+              {/* Citação preenchendo o espaço com elegância */}
+              <div className="relative bg-[#c9a96e]/5 border-l-2 border-[#c9a96e] p-4 rounded-r-xl text-xs sm:text-sm text-white/80 italic">
+                <Quote size={14} className="text-[#c9a96e] inline mr-2 opacity-60" />
+                "A advocacia exige técnica, mas acima de tudo, compromisso inegociável com a tranquilidade e os direitos de cada cliente."
+              </div>
             </div>
 
             {/* Rodapé do Card */}
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+            <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
               <a
                 href="#contato"
                 className="inline-flex items-center gap-2.5 bg-[#c9a96e] hover:bg-[#b8975c] text-black px-7 py-3.5 rounded-2xl text-sm font-bold transition-all shadow-lg shadow-[#c9a96e]/15 hover:shadow-[#c9a96e]/30 hover:-translate-y-0.5"
@@ -77,7 +78,6 @@ function Team() {
                 Agendar Consulta
               </a>
 
-              {/* E-mail atualizado para o do Dr. Thiago */}
               <a 
                 href="mailto:thiago.oab.adv@outlook.com" 
                 aria-label="Enviar E-mail"
