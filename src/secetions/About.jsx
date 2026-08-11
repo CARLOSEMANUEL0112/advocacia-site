@@ -10,15 +10,15 @@ const highlights = [
 
 const officePhotos = [
   {
-    url: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000",
-    caption: "Ambiente de Atendimento"
+    url: "/escritorio-card.png",
+    caption: "Fachada e Escritório - Thiago Miranda Advogados"
   },
   {
-    url: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1000",
+    url: "/sala_card_aprimorada.png",
     caption: "Sala de Reuniões"
   },
   {
-    url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000",
+    url: "/sala2_card_qualidade.png",
     caption: "Recepção do Escritório"
   }
 ]
@@ -46,21 +46,21 @@ function About() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Coluna da Esquerda (Carrossel Limpo) */}
+          {/* Coluna da Esquerda (Carrossel Ajustado para exibir a foto inteira) */}
           <div className="lg:col-span-6 relative group">
-            <div className="rounded-[2.5rem] overflow-hidden border border-white/15 shadow-2xl bg-[#111111] relative h-[450px] sm:h-[580px]">
+            <div className="rounded-[2.5rem] overflow-hidden border border-white/15 shadow-2xl bg-[#0a0a0a] relative h-[450px] sm:h-[580px] flex items-center justify-center">
               
               {officePhotos.map((photo, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center p-2 sm:p-4 ${
                     index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
                   }`}
                 >
                   <img
                     src={photo.url}
                     alt={photo.caption}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               ))}
@@ -136,7 +136,7 @@ function About() {
                 </div>
 
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Thiago+Miranda+Advogados+J%C3%BAlio+Borges+PI"
+                  href="https://maps.google.com/?q=Avenida+Antônio+Ribeiro,+Júlio+Borges+-+PI"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#c9a96e]/10 hover:bg-[#c9a96e] text-[#c9a96e] hover:text-black border border-[#c9a96e]/30 text-xs font-semibold transition-all shrink-0"
@@ -150,7 +150,7 @@ function About() {
               <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border border-white/10 relative shadow-inner bg-white/5">
                 <iframe
                   title="Localização do Escritório - Thiago Miranda Advogados"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.179180030242!2d-44.239133125201704!3d-10.327541289795231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x76397e237072cef%3A0x614097124d0bda0!2sThiago%20Miranda%20Advogados!5e0!3m2!1spt-BR!2sbr!4v1786318970155!5m2!1spt-BR!2sbr"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.0!2d-44.0!3d-9.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzAnMDAuMCJTIDQ0wrAwMCcwMC4wIlc!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -163,7 +163,7 @@ function About() {
               {/* Botão mobile */}
               <div className="mt-4 pt-3 border-t border-white/10 flex sm:hidden justify-center">
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Thiago+Miranda+Advogados+J%C3%BAlio+Borges+PI"
+                  href="https://maps.google.com/?q=Avenida+Antônio+Ribeiro,+Júlio+Borges+-+PI"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#c9a96e] text-black text-xs font-bold transition-all shadow-md"

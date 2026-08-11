@@ -7,7 +7,7 @@ export const site = {
   instagram: "@adv.thiagomr",
   address: "Avenida Antônio Ribeiro - Centro, Júlio Borges - PI, 64983-000",
   hours: "Seg a Sex, das 07:30 às 19h",
-  email: "contato@tmadvogados.adv.page",
+  email: "thiago.oab.adv@outlook.com",
   mapUrl: "https://maps.google.com/?q=Avenida+Antônio+Ribeiro+Centro+Júlio+Borges+PI",
   isDemo: false,
 }

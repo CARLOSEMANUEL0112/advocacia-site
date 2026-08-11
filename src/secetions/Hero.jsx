@@ -29,9 +29,9 @@ function Hero() {
             </span>
           </h1>
 
-          {/* Descrição */}
+          {/* Descrição Atualizada com o perfil do Dr. Thiago */}
           <p className="text-base sm:text-xl text-white/80 leading-relaxed max-w-2xl mb-8 sm:mb-10">
-            Comprometidos com a excelência, buscamos soluções jurídicas inovadoras e seguras para atender às suas necessidades.
+            Escritório full service com expertise em assessoria e consultoria jurídica em casos complexos, atuação interdisciplinar e humanizada.
           </p>
 
           {/* Botões */}

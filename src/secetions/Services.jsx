@@ -1,56 +1,40 @@
 import { useState } from "react"
 import { 
-  Building2, 
-  Scale, 
-  BookOpen, 
-  Vote, 
   ShieldCheck, 
-  FileSpreadsheet, 
-  TreePine, 
-  Briefcase,
-  CheckCircle2,
+  Briefcase, 
+  Vote, 
+  Building2, 
+  FileText, 
   ArrowRight,
+  CheckCircle2,
   X
 } from "lucide-react"
 
 const areas = [
   {
-    icon: Building2,
-    title: "Direito Administrativo",
-    description: "Regula a atividade da Administração Pública e suas relações com os cidadãos, garantindo legalidade e eficiência.",
+    icon: ShieldCheck,
+    title: "Direito Previdenciário",
+    description: "Regulamenta a proteção social, assegurando o acesso a benefícios e a segurança financeira dos segurados e dependentes.",
     topics: [
-      "Consultoria em licitações e contratos administrativos",
-      "Assessoria em processos administrativos disciplinares",
-      "Elaboração de defesas em ações de improbidade administrativa",
-      "Consultoria sobre atos normativos e regulatórios",
-      "Análise de conformidade com a legislação ambiental",
-      "Representação em contenciosos administrativos"
-    ]
-  },
-  {
-    icon: Scale,
-    title: "Direito Civil",
-    description: "Regula as relações entre indivíduos e entidades, protegendo direitos e garantindo segurança jurídica nas relações interpessoais.",
-    topics: [
-      "Consultoria em contratos",
-      "Ações de indenização",
+      "Consultoria em aposentadoria",
+      "Revisão de benefícios previdenciários",
       "Planejamento sucessório",
-      "Regularização de imóveis",
-      "Ação de reconhecimento de paternidade",
-      "Mediação e conciliação familiar"
+      "Orientação sobre seguridade social",
+      "Assessoria em requerimentos administrativos",
+      "Defesas em ações judiciais previdenciárias"
     ]
   },
   {
-    icon: BookOpen,
-    title: "Direito Constitucional",
-    description: "Estuda as normas fundamentais do Estado, garantindo a proteção dos direitos e garantias individuais dos cidadãos.",
+    icon: Briefcase,
+    title: "Direito Trabalhista",
+    description: "Regula as relações entre empregados e empregadores, buscando assegurar justiça, respeito e equilíbrio no ambiente laboral.",
     topics: [
-      "Assessoria na elaboração de propostas legislativas",
-      "Defesa em ações diretas de inconstitucionalidade",
-      "Análise de contratos administrativos",
-      "Orientação sobre direitos fundamentais",
-      "Consultoria em direitos políticos",
-      "Representação em conflitos de competências"
+      "Consultoria em contratos de trabalho",
+      "Assessoria em rescisões contratuais",
+      "Acompanhamento de disputas trabalhistas",
+      "Orientação sobre direitos e deveres do trabalhador",
+      "Elaboração de políticas de compliance trabalhista",
+      "Representação em audiências trabalhistas"
     ]
   },
   {
@@ -67,55 +51,29 @@ const areas = [
     ]
   },
   {
-    icon: ShieldCheck,
-    title: "Direito Previdenciário",
-    description: "Regulamenta a proteção social, assegurando o acesso a benefícios e a segurança financeira dos segurados e dependentes.",
+    icon: Building2,
+    title: "Direito Público",
+    description: "Regula a atividade da Administração Pública e suas relações com os cidadãos e entidades, garantindo legalidade e eficiência.",
     topics: [
-      "Consultoria em aposentadoria",
-      "Revisão de benefícios previdenciários",
-      "Planejamento sucessório",
-      "Orientação sobre seguridade social",
-      "Assessoria em requerimentos administrativos",
-      "Defesas em ações judiciais previdenciárias"
+      "Consultoria em licitações e contratos administrativos",
+      "Assessoria em processos administrativos disciplinares",
+      "Elaboração de defesas em ações de improbidade administrativa",
+      "Consultoria sobre atos normativos e regulatórios",
+      "Atuação voltada para órgãos públicos",
+      "Representação em contenciosos administrativos"
     ]
   },
   {
-    icon: FileSpreadsheet,
-    title: "Direito Tributário",
-    description: "Regulamenta a arrecadação e fiscalização de tributos, promovendo a justiça fiscal e o equilíbrio entre Estado e contribuintes.",
+    icon: FileText,
+    title: "Assessoria e Consultoria Jurídica",
+    description: "Atuação consultiva e estratégica voltada para dar total segurança jurídica e suporte especializado em casos complexos.",
     topics: [
-      "Consultoria tributária",
-      "Planejamento tributário",
-      "Defesas administrativas em autuações fiscais",
-      "Análise de incentivos fiscais",
-      "Assessoria em processos judiciais tributários",
-      "Elaboração de pareceres jurídicos tributários"
-    ]
-  },
-  {
-    icon: TreePine,
-    title: "Direito do Meio Ambiente",
-    description: "Visa assegurar a proteção dos recursos naturais, promovendo um desenvolvimento sustentável e equilibrado para a sociedade.",
-    topics: [
-      "Consultoria em licenciamento ambiental",
-      "Assessoria em questões de responsabilidade ambiental",
-      "Análise e elaboração de pareceres de impacto ambiental",
-      "Defesa em ações civis públicas e ações coletivas",
-      "Orientação sobre compliance ambiental",
-      "Elaboração de contratos relacionados a atividades ambientais"
-    ]
-  },
-  {
-    icon: Briefcase,
-    title: "Direito do Trabalho",
-    description: "Regula as relações entre empregados e empregadores, buscando assegurar justiça, respeito e equilíbrio no ambiente laboral.",
-    topics: [
-      "Consultoria em contratos de trabalho",
-      "Assessoria em rescisões contratuais",
-      "Acompanhamento de disputas trabalhistas",
-      "Orientação sobre direitos e deveres do trabalhador",
-      "Elaboração de políticas de compliance trabalhista",
-      "Representação em audiências trabalhistas"
+      "Atendimento especializado para Empresas",
+      "Suporte jurídico para o Terceiro Setor",
+      "Consultoria focada em Órgãos Públicos",
+      "Prevenção de riscos legais e societários",
+      "Elaboração e revisão de contratos estratégicos",
+      "Pareceres jurídicos personalizados"
     ]
   }
 ]

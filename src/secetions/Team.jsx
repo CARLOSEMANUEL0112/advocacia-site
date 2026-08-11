@@ -52,8 +52,9 @@ function Team() {
                 <span>Advogado Titular & Sócio Fundador</span>
               </div>
 
+              {/* Descrição atualizada com a formação enviada */}
               <p className="text-sm sm:text-base text-white/75 leading-relaxed pt-2">
-                Profissional dedicado à advocacia estratégica, com atuação firme na resolução de conflitos, proteção de direitos e planejamento jurídico personalizado para cada cliente.
+                Graduado pela Escola de Direito - Universidade Anhembi Morumbi. Profissional dedicado à advocacia estratégica, com atuação firme na resolução de conflitos, proteção de direitos e planejamento jurídico personalizado para cada cliente.
               </p>
 
               {/* Diferenciais rápidos em formato de lista limpa */}
@@ -79,8 +80,9 @@ function Team() {
                 Agendar Consulta
               </a>
 
+              {/* E-mail atualizado para o do Dr. Thiago */}
               <a 
-                href="mailto:carlosemanuelr0405@gmail.com" 
+                href="mailto:thiago.oab.adv@outlook.com" 
                 aria-label="Enviar E-mail"
                 className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-[#c9a96e] hover:border-[#c9a96e]/40 hover:bg-[#c9a96e]/10 transition-all hover:-translate-y-0.5"
               >
