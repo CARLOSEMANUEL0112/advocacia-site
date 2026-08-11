@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { CheckCircle2, MapPin, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
+import { CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react"
 
 const highlights = [
   "Atendimento exclusivo e humanizado",
@@ -11,15 +11,11 @@ const highlights = [
 const officePhotos = [
   {
     url: "/escritorio-card.png",
-    caption: "Fachada e Escritório - Thiago Miranda Advogados"
+    caption: "Fachada do Escritório Thiago Miranda Advogados"
   },
   {
     url: "/sala_card_aprimorada.png",
-    caption: "Sala de Reuniões"
-  },
-  {
-    url: "/sala2_card_qualidade.png",
-    caption: "Recepção do Escritório"
+    caption: "Interior do Escritório"
   }
 ]
 
@@ -46,39 +42,49 @@ function About() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Coluna da Esquerda (Carrossel com bordas douradas detalhadas) */}
+          {/* Coluna da Esquerda (Carrossel com bordas douradas e sem cortes) */}
           <div className="lg:col-span-6 relative group">
-            {/* Adicionado border-[#c9a96e]/40 e sombra dourada sutil shadow-[#c9a96e]/10 */}
-            <div className="rounded-[2.5rem] overflow-hidden border-2 border-[#c9a96e]/40 shadow-2xl shadow-[#c9a96e]/10 relative h-[520px] sm:h-[650px] flex items-center justify-center bg-black/40">
+            <div className="rounded-[2.5rem] overflow-hidden border-2 border-[#c9a96e]/40 shadow-2xl shadow-[#c9a96e]/10 relative h-[520px] sm:h-[650px] flex items-center justify-center bg-[#0a0a0a]">
               
-              {/* Fundo com desfoque */}
-              <img 
-                src="/escritorio-card.png"
-                alt="Ambiente do escritório Thiago Miranda"
-                className="absolute inset-0 w-full h-full object-cover scale-110 filter blur-md opacity-40 z-0"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/70 z-0"></div>
+              {/* Fundo desfocado elegante para preencher as laterais mantendo a foto inteira visível */}
+              {officePhotos.map((photo, index) => (
+                <div
+                  key={`bg-${index}`}
+                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                    index === currentIndex ? "opacity-30 z-0" : "opacity-0 z-0"
+                  }`}
+                >
+                  <img
+                    src={photo.url}
+                    alt=""
+                    className="w-full h-full object-cover filter blur-xl scale-110"
+                    aria-hidden="true"
+                  />
+                </div>
+              ))}
 
-              {/* As fotos do Carrossel */}
+              {/* Camada escura sutil sobre o fundo */}
+              <div className="absolute inset-0 bg-black/50 z-0" />
+
+              {/* As fotos do Carrossel por cima, inteiras e sem cortes */}
               {officePhotos.map((photo, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center p-2 sm:p-4 ${
+                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center justify-center p-3 sm:p-6 ${
                     index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
                   }`}
                 >
                   <img
                     src={photo.url}
                     alt={photo.caption}
-                    className="w-full h-full object-contain drop-shadow-2xl"
+                    className="w-full h-full object-contain drop-shadow-2xl rounded-2xl"
                   />
                 </div>
               ))}
 
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-25 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
                 aria-label="Foto anterior"
               >
                 <ChevronLeft size={20} />
@@ -86,13 +92,14 @@ function About() {
 
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-25 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
                 aria-label="Próxima foto"
               >
                 <ChevronRight size={20} />
               </button>
 
-              <div className="absolute bottom-6 right-6 z-25 flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3.5 py-2 rounded-full border border-[#c9a96e]/30 shadow-xl">
+              {/* Indicadores */}
+              <div className="absolute bottom-6 right-6 z-20 flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3.5 py-2 rounded-full border border-[#c9a96e]/30 shadow-xl">
                 {officePhotos.map((_, index) => (
                   <button
                     key={index}
@@ -122,65 +129,13 @@ function About() {
               O compromisso vai além do acompanhamento processual: buscamos entender profundamente a necessidade de cada caso para entregar segurança jurídica e patrimonial sólida.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-3 w-full pt-4 border-t border-white/10 mb-6">
+            <div className="grid sm:grid-cols-2 gap-3 w-full pt-4 border-t border-white/10">
               {highlights.map((item, index) => (
                 <div key={index} className="flex items-start gap-3 bg-white/[0.03] hover:bg-white/[0.06] transition-colors p-3 rounded-xl border border-white/5">
                   <CheckCircle2 size={16} className="text-[#c9a96e] shrink-0 mt-0.5" />
                   <span className="text-xs text-white/90 leading-snug">{item}</span>
                 </div>
               ))}
-            </div>
-
-            {/* BLOCO DE LOCALIZAÇÃO */}
-            <div className="w-full bg-[#111111] border border-white/10 rounded-2xl p-5 sm:p-6 shadow-2xl">
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#c9a96e]/10 flex items-center justify-center text-[#c9a96e] shrink-0">
-                    <MapPin size={22} />
-                  </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider">Thiago Miranda Advogados</h3>
-                    <p className="text-xs sm:text-sm text-white/70">Avenida Antônio Ribeiro - Centro, Júlio Borges - PI, 64983-000</p>
-                  </div>
-                </div>
-
-                <a
-                  href="https://maps.google.com/?q=Avenida+Antônio+Ribeiro,+Júlio+Borges+-+PI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#c9a96e]/10 hover:bg-[#c9a96e] text-[#c9a96e] hover:text-black border border-[#c9a96e]/30 text-xs font-semibold transition-all shrink-0"
-                >
-                  <span>Ampliar</span>
-                  <ExternalLink size={14} />
-                </a>
-              </div>
-
-              {/* Mapa com a borda dourada alinhada e a sua URL correta */}
-              <div className="w-full h-64 sm:h-72 rounded-xl overflow-hidden border-2 border-[#c9a96e]/40 relative shadow-inner bg-black">
-                <iframe
-                  title="Localização do Escritório - Thiago Miranda Advogados"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.179180030242!2d-44.239133125201704!3d-10.327541289795231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x76397e237072cef%3A0x614097124d0bda0!2sThiago%20Miranda%20Advogados!5e0!3m2!1spt-BR!2sbr!4v1786486589475!5m2!1spt-BR!2sbr"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                ></iframe>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-white/10 flex sm:hidden justify-center">
-                <a
-                  href="https://maps.google.com/?q=Avenida+Antônio+Ribeiro,+Júlio+Borges+-+PI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#c9a96e] text-black text-xs font-bold transition-all shadow-md"
-                >
-                  <MapPin size={16} />
-                  <span>Abrir no Google Maps</span>
-                  <ExternalLink size={14} />
-                </a>
-              </div>
             </div>
 
           </div>
