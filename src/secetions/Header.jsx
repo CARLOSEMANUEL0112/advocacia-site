@@ -23,8 +23,8 @@ function Header() {
           <a href="#atuacao" className="hover:text-[#c9a96e] transition-colors whitespace-nowrap">Áreas de atuação</a>
           <a href="#escritorio" className="hover:text-[#c9a96e] transition-colors whitespace-nowrap">Escritório</a>
           <a href="#sobre" className="hover:text-[#c9a96e] transition-colors whitespace-nowrap">Sobre</a>
-          <a href="#avaliacoes" className="hover:text-[#c9a96e] transition-colors whitespace-nowrap">Avaliações</a>
           <a href="#faq" className="hover:text-[#c9a96e] transition-colors whitespace-nowrap">FAQ</a>
+          <a href="#avaliacoes" className="hover:text-[#c9a96e] transition-colors whitespace-nowrap">Avaliações</a>
           <a href="#contato" className="hover:text-[#c9a96e] transition-colors whitespace-nowrap">Localização</a>
         </nav>
 
@@ -54,8 +54,8 @@ function Header() {
             <a href="#atuacao" onClick={() => setMenuOpen(false)} className="hover:text-[#c9a96e] transition-colors py-2 border-b border-white/5">Áreas de atuação</a>
             <a href="#escritorio" onClick={() => setMenuOpen(false)} className="hover:text-[#c9a96e] transition-colors py-2 border-b border-white/5">Escritório</a>
             <a href="#sobre" onClick={() => setMenuOpen(false)} className="hover:text-c9a96e transition-colors py-2 border-b border-white/5">Sobre</a>
-            <a href="#avaliacoes" onClick={() => setMenuOpen(false)} className="hover:text-[#c9a96e] transition-colors py-2 border-b border-white/5">Avaliações</a>
             <a href="#faq" onClick={() => setMenuOpen(false)} className="hover:text-[#c9a96e] transition-colors py-2 border-b border-white/5">FAQ</a>
+            <a href="#avaliacoes" onClick={() => setMenuOpen(false)} className="hover:text-[#c9a96e] transition-colors py-2 border-b border-white/5">Avaliações</a>
             <a href="#contato" onClick={() => setMenuOpen(false)} className="hover:text-[#c9a96e] transition-colors py-2">Localização</a>
           </nav>
           
