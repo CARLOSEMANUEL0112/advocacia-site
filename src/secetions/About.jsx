@@ -13,10 +13,6 @@ const officePhotos = [
     url: "/escritorio-card.png",
     caption: "Fachada do Escritório Thiago Miranda Advogados"
   },
-  {
-    url: "/sala_card_aprimorada.png",
-    caption: "Interior do Escritório"
-  }
 ]
 
 function About() {
@@ -42,7 +38,7 @@ function About() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Coluna da Esquerda (Carrossel com bordas douradas e sem cortes) */}
+          {/* Coluna da Esquerda (Foto única com bordas douradas e sem cortes) */}
           <div className="lg:col-span-6 relative group">
             <div className="rounded-[2.5rem] overflow-hidden border-2 border-[#c9a96e]/40 shadow-2xl shadow-[#c9a96e]/10 relative h-[520px] sm:h-[650px] flex items-center justify-center bg-[#0a0a0a]">
               
@@ -66,7 +62,7 @@ function About() {
               {/* Camada escura sutil sobre o fundo */}
               <div className="absolute inset-0 bg-black/50 z-0" />
 
-              {/* As fotos do Carrossel por cima, inteiras e sem cortes */}
+              {/* A foto principal por cima, inteira e sem cortes */}
               {officePhotos.map((photo, index) => (
                 <div
                   key={index}
@@ -82,35 +78,39 @@ function About() {
                 </div>
               ))}
 
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
-                aria-label="Foto anterior"
-              >
-                <ChevronLeft size={20} />
-              </button>
-
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
-                aria-label="Próxima foto"
-              >
-                <ChevronRight size={20} />
-              </button>
-
-              {/* Indicadores */}
-              <div className="absolute bottom-6 right-6 z-20 flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3.5 py-2 rounded-full border border-[#c9a96e]/30 shadow-xl">
-                {officePhotos.map((_, index) => (
+              {/* Botões de navegação e indicadores aparecem apenas se houver mais de uma foto */}
+              {officePhotos.length > 1 && (
+                <>
                   <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                      index === currentIndex ? "w-6 bg-[#c9a96e]" : "w-1.5 bg-white/40 hover:bg-white/70"
-                    }`}
-                    aria-label={`Ir para foto ${index + 1}`}
-                  />
-                ))}
-              </div>
+                    onClick={prevSlide}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
+                    aria-label="Foto anterior"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+
+                  <button
+                    onClick={nextSlide}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/65 backdrop-blur-md border border-[#c9a96e]/30 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-[#c9a96e] hover:text-black hover:border-[#c9a96e] cursor-pointer shadow-lg"
+                    aria-label="Próxima foto"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+
+                  <div className="absolute bottom-6 right-6 z-20 flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3.5 py-2 rounded-full border border-[#c9a96e]/30 shadow-xl">
+                    {officePhotos.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                          index === currentIndex ? "w-6 bg-[#c9a96e]" : "w-1.5 bg-white/40 hover:bg-white/70"
+                        }`}
+                        aria-label={`Ir para foto ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
 
             </div>
           </div>
